@@ -119,8 +119,12 @@ export function EndingScreen({
 
         {/* Ending hint */}
         <div className="bg-slate-800/40 border border-slate-700/50 rounded-xl p-4 text-center space-y-2">
-          <p className="text-slate-400 text-sm">你只看到了 <span className="text-amber-400 font-bold">1/8</span> 种结局</p>
-          <p className="text-slate-600 text-xs">不同的选择会带你走向完全不同的命运——<br />也许下次，你能活着看到天亮。</p>
+          <p className="text-slate-300 text-sm font-medium">你只体验了 <span className="text-amber-400 font-bold text-lg">1/8</span> 种结局</p>
+          <p className="text-slate-500 text-xs leading-relaxed">
+            每个选择都在暗中标好了代价。<br />
+            换一种决策，换一个命运。<br />
+            再值一次班，试试不同的路。
+          </p>
         </div>
 
         {/* Restart */}
@@ -130,6 +134,19 @@ export function EndingScreen({
         >
           再值一次班
         </button>
+
+        {/* Support */}
+        <div className="text-center space-y-1">
+          <p className="text-slate-600 text-[11px]">觉得有点意思？</p>
+          <a
+            href="https://afdian.com/a/beneath-the-white-coat"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-amber-500 hover:text-amber-400 text-sm font-medium transition-colors"
+          >
+            ☕️ 请创作者喝杯咖啡
+          </a>
+        </div>
 
         <p className="text-center text-slate-700 text-[10px]">
           改编自真实案例 · 8种结局等你探索
