@@ -71,8 +71,8 @@ export function StartScreen({ playerName, stage, onStart }: StartScreenProps) {
           开始值班
         </button>
 
-        <p className="text-center text-slate-700 text-[10px]">
-          改编自真实案例 · 有8种不同结局
+        <p className="text-center text-slate-600 text-[10px]">
+          已有 <span id="busuanzi_value_site_pv" className="text-slate-500">-</span> 人途经此地 · 8种结局等你探索
         </p>
       </div>
     </div>

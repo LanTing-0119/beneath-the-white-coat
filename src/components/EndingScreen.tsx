@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import type { PlayerStats, GameRecord, CareerStage } from '../types'
 import { Celebration } from './Celebration'
 
 const AMOUNTS = ['花花', '2元', '5元', '10元', '自定义']
-const COUNTER_KEY = 'btwc_played'
 
 interface EndingScreenProps {
   ending: { title: string; description: string; emoji: string }
@@ -26,23 +25,6 @@ export function EndingScreen({
 }: EndingScreenProps) {
   const [paidAmount, setPaidAmount] = useState<string | null>(null)
   const [showFlowerThank, setShowFlowerThank] = useState(false)
-  const [totalPlays, setTotalPlays] = useState<number>(() => {
-    const stored = localStorage.getItem(COUNTER_KEY + '_total')
-    return stored ? Number(stored) : 0
-  })
-
-  useEffect(() => {
-    const alreadyPlayed = localStorage.getItem(COUNTER_KEY)
-    const now = Date.now()
-    if (!alreadyPlayed || now - Number(alreadyPlayed) > 86400000) {
-      const newTotal = totalPlays + 1
-      localStorage.setItem(COUNTER_KEY, String(now))
-      localStorage.setItem(COUNTER_KEY + '_total', String(newTotal))
-      setTotalPlays(newTotal)
-    }
-    // Try remote counter in background (may not work in China)
-    fetch('https://api.counterapi.dev/v1/beneath-the-white-coat/plays/up', { mode: 'no-cors' }).catch(() => {})
-  }, [])
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 overflow-auto">
@@ -89,28 +71,22 @@ export function EndingScreen({
         </div>
 
         {/* Stats summary */}
-        <div className="grid grid-cols-4 gap-2 text-center">
-          <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-2.5">
-            <p className="text-lg font-bold text-white">{stage}</p>
-            <p className="text-slate-500 text-[10px]">到达阶段</p>
+        <div className="grid grid-cols-3 gap-3 text-center">
+          <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-3">
+            <p className="text-2xl font-bold text-white">{stage}</p>
+            <p className="text-slate-500 text-xs">到达阶段</p>
           </div>
-          <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-2.5">
-            <p className="text-lg font-bold text-emerald-400">
+          <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-3">
+            <p className="text-2xl font-bold text-emerald-400">
               {totalChoices > 0
                 ? Math.round((recommendedCount / totalChoices) * 100)
                 : 0}%
             </p>
-            <p className="text-slate-500 text-[10px]">明智选择率</p>
+            <p className="text-slate-500 text-xs">明智选择率</p>
           </div>
-          <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-2.5">
-            <p className="text-lg font-bold text-amber-400">{totalChoices}</p>
-            <p className="text-slate-500 text-[10px]">事件经历</p>
-          </div>
-          <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-2.5">
-            <p className="text-lg font-bold text-rose-400">
-              {totalPlays.toLocaleString()}
-            </p>
-            <p className="text-slate-500 text-[10px]">我的游玩</p>
+          <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-3">
+            <p className="text-2xl font-bold text-amber-400">{totalChoices}</p>
+            <p className="text-slate-500 text-xs">事件经历</p>
           </div>
         </div>
 
@@ -236,7 +212,7 @@ export function EndingScreen({
         </div>
 
         <p className="text-center text-slate-700 text-[10px]">
-          改编自真实案例 · 已有 <span id="busuanzi_value_page_pv" className="text-slate-500">-</span> 人探索过此地
+          改编自真实案例 · 已有 <span id="busuanzi_value_site_pv" className="text-slate-500">-</span> 人途经此地
         </p>
       </div>
     </div>
