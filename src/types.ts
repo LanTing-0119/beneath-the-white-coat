@@ -15,6 +15,7 @@ export type EventCategory =
   | '网络暴力'
   | '制度博弈'
   | '法律雷区'
+  | '温暖瞬间'
 
 export interface EventOption {
   id: string
@@ -34,6 +35,7 @@ export interface GameEvent {
   isRealCase: boolean
   realCaseRef?: string
   imagePrompt?: string
+  minStats?: Partial<PlayerStats>
   options: EventOption[]
 }
 

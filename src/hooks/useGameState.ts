@@ -62,11 +62,26 @@ function reducer(state: GameState, action: Action): GameState {
 
     case 'START_STAGE': {
       const stageEvents = allEvents.filter((e) => e.stage === state.stage)
-      const selected = shuffleAndPick(stageEvents, EVENTS_PER_STAGE)
+      // Separate mandatory and conditional (warm) events
+      const mandatory = stageEvents.filter((e) => !e.minStats)
+      const conditional = stageEvents.filter((e) => e.minStats)
+      const unlocked = conditional.filter((e) => {
+        const req = e.minStats!
+        return (
+          (req.reputation === undefined || state.stats.reputation >= req.reputation) &&
+          (req.safety === undefined || state.stats.safety >= req.safety) &&
+          (req.mental === undefined || state.stats.mental >= req.mental) &&
+          (req.support === undefined || state.stats.support >= req.support) &&
+          (req.legalRisk === undefined || state.stats.legalRisk <= req.legalRisk)
+        )
+      })
+      const selected = shuffleAndPick(mandatory, EVENTS_PER_STAGE)
+      // Add unlocked warm events (max 2 per stage) after the regular ones
+      const bonus = shuffleAndPick(unlocked, 2)
       return {
         ...state,
         phase: 'PLAYING',
-        events: selected,
+        events: [...selected, ...bonus],
         currentEventIndex: 0,
         lastChoice: null,
       }

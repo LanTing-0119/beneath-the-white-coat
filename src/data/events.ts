@@ -109,6 +109,37 @@ export const allEvents: GameEvent[] = [
     ],
   },
 
+  // 住院医师 · 温暖瞬间（仅当声誉达标时触发——你善待过患者）
+  {
+    id: 'r8-thank-letter',
+    stage: '住院医师',
+    category: '温暖瞬间',
+    title: '一封手写信',
+    description: '两周前你顶着压力坚持为一位老爷爷做了详细的病情解释。今天他出院，从旧布包里掏出信塞给你："医生，我字不好，就是想谢谢你。"',
+    isRealCase: true,
+    realCaseRef: '多地报道患者手写感谢信的真情瞬间',
+    minStats: { reputation: 45 },
+    imagePrompt: '医院病房，白发老年患者微笑着将一封手写信递给年轻医生，信纸微微发皱但字迹工整，窗外阳光温暖照进来，温馨感人氛围，写实摄影风格，竖屏构图',
+    options: [
+      { id: 'pocket', label: '收下道谢继续查房', isDefault: true, outcome: '查完房你细看，发现信里夹了一张老爷爷全家福——他把你当家人了。你发了条朋友圈：今天被暖到。', statsEffect: { mental: +5, reputation: +3 }, isRecommended: true, tip: '', },
+      { id: 'share', label: '征得同意挂到科室留言板', isDefault: false, outcome: '其他患者看到说"这医生肯定不错"。主任路过看了一眼，在晨会提了你的名字。', statsEffect: { reputation: +8, support: +5, mental: +3 }, isRecommended: true, tip: '', },
+    ],
+  },
+  {
+    id: 'r9-night-shift',
+    stage: '住院医师',
+    category: '温暖瞬间',
+    title: '凌晨三点',
+    description: '你之前站出来护过那位被家属推搡的护士。今晚你连值第二个夜班趴在桌上歇气，她默默放了杯热豆浆和面包在你旁边。',
+    isRealCase: true,
+    realCaseRef: '医生群体中同事互助的温暖日常',
+    minStats: { support: 35 },
+    imagePrompt: '深夜医院护士站，年轻男医生疲惫趴在桌上，一位年长护士轻轻放下一杯热豆浆和面包，灯光温暖柔和，安静温馨的同事关怀氛围，写实摄影风格，竖屏构图',
+    options: [
+      { id: 'eat-alone', label: '道谢趁热吃了继续干活', isDefault: true, outcome: '热豆浆下肚人暖过来了。你继续查房，那晚剩下的几小时没那么难熬。', statsEffect: { mental: +5, support: +3 }, isRecommended: true, tip: '', },
+    ],
+  },
+
   // ========== 主治医师阶段 ==========
   {
     id: 'a1-mob-besiege',
@@ -215,6 +246,36 @@ export const allEvents: GameEvent[] = [
     ],
   },
 
+  // 主治医师 · 温暖瞬间
+  {
+    id: 'a8-trust',
+    stage: '主治医师',
+    category: '温暖瞬间',
+    title: '从误解到信任',
+    description: '那个每次查房都录音的家属，今天突然找到你："医生，之前对不起。我天天看你那么晚还在，是真为病人好。"',
+    isRealCase: true,
+    realCaseRef: '多位医生分享"被误解后重获信任"的真实经历',
+    minStats: { reputation: 55 },
+    imagePrompt: '医院病房外走廊，一位中年家属表情诚恳地对年轻医生道歉并握手，医生微笑着回应，窗外阳光明亮温暖，和解信任的温馨氛围，竖屏构图',
+    options: [
+      { id: 'accept-grace', label: '微笑说都是为了病人好', isDefault: true, outcome: '家属红了眼眶。之后他成了病房里帮你维持秩序的"编外助手"。隔壁床家属有意见他先帮你劝。', statsEffect: { reputation: +8, mental: +5, support: +3 }, isRecommended: true, tip: '', },
+    ],
+  },
+  {
+    id: 'a9-mentor',
+    stage: '主治医师',
+    category: '温暖瞬间',
+    title: '老主任的托付',
+    description: '退休前老主任把你叫到办公室："最难的这个病人想交给你。你不一样，你是真把病人当人看。"',
+    isRealCase: true,
+    realCaseRef: '医生传承中的温情时刻；医学教育中的"传帮带"传统',
+    minStats: { reputation: 60, support: 45 },
+    imagePrompt: '医院办公室内，一位头发花白的老主任微笑着将病历递给年轻主治医生，眼神中充满信任和期许，窗外傍晚余晖，传承与信任的温暖氛围，竖屏构图',
+    options: [
+      { id: 'accept-humble', label: '接下请主任详细交接病情', isDefault: true, outcome: '主任花了半小时把细节全交代了。你接手后病人恢复顺利。主任退休前来看最后一眼，对你竖了大拇指。', statsEffect: { reputation: +10, support: +8, mental: +5 }, isRecommended: true, tip: '', },
+    ],
+  },
+
   // ========== 副主任医师阶段 ==========
   {
     id: 'c1-sustained-cyberbully',
@@ -288,6 +349,21 @@ export const allEvents: GameEvent[] = [
     options: [
       { id: 'appease', label: '道歉安抚说我们技术不好', isDefault: true, outcome: '爷爷录音当"证据"拿到医务科。护士因你当众说她"技术不好"申请调离儿科。', statsEffect: { legalRisk: +15, support: -15, mental: -10 }, isRecommended: false, tip: '"是我们不好"在纠纷中是认罪。', },
       { id: 'firm-boundary', label: '挡在护士前再动手就报警了', isDefault: false, outcome: '奶奶被镇住。你亲自一针扎上后说"心疼孙子理解，但推那一下——换您女儿被推呢？"她沉默后去道歉。', statsEffect: { reputation: +10, support: +15, safety: +10, mental: +5 }, isRecommended: true, tip: '保护团队第一。底线坚定但给台阶。', },
+    ],
+  },
+  // 副主任医师 · 温暖瞬间
+  {
+    id: 'c7-return',
+    stage: '副主任医师',
+    category: '温暖瞬间',
+    title: '十年后的鞠躬',
+    description: '门诊，一个年轻人带孩子进来对你深深鞠躬："医生，十年前您救了我妈。今天带儿子来——看看救命恩人长什么样。"',
+    isRealCase: true,
+    realCaseRef: '多地报道患者多年后回访感谢医生的感人故事',
+    minStats: { reputation: 65, mental: 50 },
+    imagePrompt: '医院门诊诊室，一个年轻父亲带着小男孩对着中年医生深深鞠躬，医生表情感动眼含泪光，窗外阳光温暖洒入，医患真情动人瞬间，竖屏构图',
+    options: [
+      { id: 'humble', label: '扶起他眼湿了蹲下看孩子', isDefault: true, outcome: '小男孩怯怯说"谢谢叔叔救奶奶"。你蹲下摸摸他头。那一下午你看每个病人都多了几分耐心。', statsEffect: { reputation: +10, mental: +10 }, isRecommended: true, tip: '', },
     ],
   },
   {
