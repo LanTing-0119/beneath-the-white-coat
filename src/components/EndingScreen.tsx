@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import type { PlayerStats, GameRecord, CareerStage } from '../types'
 import { Celebration } from './Celebration'
 
 const AMOUNTS = ['花花', '2元', '5元', '10元', '自定义']
+const COUNTER_NS = 'beneath-the-white-coat'
+const COUNTER_KEY = 'played-' + COUNTER_NS
 
 interface EndingScreenProps {
   ending: { title: string; description: string; emoji: string }
@@ -25,6 +27,29 @@ export function EndingScreen({
 }: EndingScreenProps) {
   const [paidAmount, setPaidAmount] = useState<string | null>(null)
   const [showFlowerThank, setShowFlowerThank] = useState(false)
+  const [totalPlays, setTotalPlays] = useState<number | null>(null)
+
+  useEffect(() => {
+    const record = async () => {
+      const alreadyPlayed = localStorage.getItem(COUNTER_KEY)
+      const now = Date.now()
+      if (alreadyPlayed && now - Number(alreadyPlayed) < 86400000) {
+        // Already counted today, just fetch
+      } else {
+        try {
+          await fetch(`https://api.countapi.xyz/hit/${COUNTER_NS}/plays`)
+          localStorage.setItem(COUNTER_KEY, String(now))
+        } catch {}
+      }
+      try {
+        const r = await fetch(`https://api.countapi.xyz/get/${COUNTER_NS}/plays`)
+        const d = await r.json()
+        setTotalPlays(d.value)
+      } catch {}
+    }
+    record()
+  }, [])
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 overflow-auto">
       <div className="max-w-2xl mx-auto px-4 py-10 space-y-6">
@@ -70,25 +95,28 @@ export function EndingScreen({
         </div>
 
         {/* Stats summary */}
-        <div className="grid grid-cols-3 gap-3 text-center">
-          <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-3">
-            <p className="text-2xl font-bold text-white">{stage}</p>
-            <p className="text-slate-500 text-xs">到达阶段</p>
+        <div className="grid grid-cols-4 gap-2 text-center">
+          <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-2.5">
+            <p className="text-lg font-bold text-white">{stage}</p>
+            <p className="text-slate-500 text-[10px]">到达阶段</p>
           </div>
-          <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-3">
-            <p className="text-2xl font-bold text-emerald-400">
+          <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-2.5">
+            <p className="text-lg font-bold text-emerald-400">
               {totalChoices > 0
                 ? Math.round((recommendedCount / totalChoices) * 100)
-                : 0}
-              %
+                : 0}%
             </p>
-            <p className="text-slate-500 text-xs">明智选择率</p>
+            <p className="text-slate-500 text-[10px]">明智选择率</p>
           </div>
-          <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-3">
-            <p className="text-2xl font-bold text-amber-400">
-              {totalChoices}
+          <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-2.5">
+            <p className="text-lg font-bold text-amber-400">{totalChoices}</p>
+            <p className="text-slate-500 text-[10px]">事件经历</p>
+          </div>
+          <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-2.5">
+            <p className="text-lg font-bold text-rose-400">
+              {totalPlays !== null ? totalPlays.toLocaleString() : '...'}
             </p>
-            <p className="text-slate-500 text-xs">事件经历</p>
+            <p className="text-slate-500 text-[10px]">总游玩人次</p>
           </div>
         </div>
 
