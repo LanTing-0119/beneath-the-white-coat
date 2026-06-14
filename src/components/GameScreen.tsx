@@ -115,6 +115,7 @@ export function GameScreen({
 
       {currentEvent && (
         <EventCard
+          key={currentEvent.id}
           event={currentEvent}
           onChoose={(optionId) => onChoose(currentEvent.id, optionId)}
         />
