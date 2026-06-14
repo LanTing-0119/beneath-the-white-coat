@@ -11,7 +11,7 @@ export function EventCard({ event, onChoose }: EventCardProps) {
       {/* Event Image - at the very top */}
       <div className="w-full">
         <img
-          src={`/images/${event.id}.webp`}
+          src={`/images/${event.id}.jpg`}
           alt={event.title}
           className="w-full max-h-64 sm:max-h-80 object-cover"
         />
