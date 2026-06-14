@@ -10,7 +10,7 @@ export const allEvents: GameEvent[] = [
     description: '门诊中，对面女患者将手机屏幕朝上放在桌上——"录音中"。她没告诉你。',
     isRealCase: true,
     realCaseRef: '复旦大学附属肿瘤医院真实事件，2025',
-    imagePrompt: '中国医院门诊诊室，年轻女医生穿着白大褂正在低头写病历，桌对面的中年女性患者偷偷将手机放在桌上屏幕向上显示录音界面，医患之间气氛微妙，写实摄影风格，柔和诊室灯光',
+    imagePrompt: "医院门诊诊室，年轻女医生穿白大褂低头写病历，桌对面中年女患者偷偷将手机屏幕朝上显示录音界面，气氛微妙，写实摄影风格，柔和灯光，竖屏构图",
     options: [
       { id: 'confront', label: '要求她停录并删除', isDefault: true, outcome: '她大喊"心虚了吧"，候诊区全看过来。随后投诉你态度差。', statsEffect: { safety: -5, mental: -10, legalRisk: +10 }, isRecommended: false, tip: '直接对抗最容易被反投诉。', },
       { id: 'leave', label: '离开诊室让门诊部介入', isDefault: false, outcome: '门诊部告知未经许可不得录音。她删了，但你也浪费了半小时。', statsEffect: { safety: +5, support: +5, reputation: -3 }, isRecommended: true, tip: '交给制度处理，不对抗不妥协。', },
@@ -26,7 +26,7 @@ export const allEvents: GameEvent[] = [
     description: '年轻人精神很好，说腰疼要病假。查体全阴性。他笑说："单位非要假条，帮个忙吧。"',
     isRealCase: true,
     realCaseRef: '丁香园论坛医生求助帖（高频事件）',
-    imagePrompt: '中国医院诊室，一个穿着时尚精神很好的年轻男子坐在医生对面，脸上带着讨好的笑容，双手合十做请求状，医生表情无奈，写实摄影风格',
+    imagePrompt: "医院诊室，穿着时尚的年轻男子坐在医生对面，脸上带讨好笑容双手合十做请求状，医生表情无奈，写实摄影风格，竖屏构图",
     options: [
       { id: 'agree', label: '举手之劳给他开两天', isDefault: true, outcome: '他单位来核实假条。医务科查依据不足，晨会点名批评。', statsEffect: { reputation: -20, legalRisk: +15, support: -10 }, isRecommended: false, tip: '虚假医疗文书一票否决。', },
       { id: 'refuse-strict', label: '告知无病不予开具证明', isDefault: false, outcome: '他当场翻脸喊主任，大闹诊室。事后投诉到卫健委。折腾半个月。', statsEffect: { mental: -5, legalRisk: +5, safety: -5 }, isRecommended: false, tip: '"你没病"是最得罪人的表达。', },
@@ -41,7 +41,7 @@ export const allEvents: GameEvent[] = [
     description: '凌晨1点值班。护士跑来：3床儿子喝醉骂人，推倒了推车。护士不敢靠近病房。',
     isRealCase: true,
     realCaseRef: '医脉通报道：值班医生教科书式应对醉酒家属，2025',
-    imagePrompt: '深夜中国医院病房走廊，护士站前，一个醉酒的男子面红耳赤正在推搡护士站的推车，护士惊恐后退，走廊灯光昏暗，紧张气氛，写实电影风格',
+    imagePrompt: "深夜医院病房走廊，护士站前一个醉酒的男子面红耳赤推搡推车，护士惊恐后退，灯光昏暗紧张气氛，写实电影风格，竖屏构图",
     options: [
       { id: 'go-alone', label: '独自过去厉声警告他', isDefault: true, outcome: '他见你一人更嚣张，抓住你衣领。白大褂撕破，颈部抓伤。', statsEffect: { safety: -20, mental: -15, reputation: -5 }, isRecommended: false, tip: '别单独面对醉酒者。', },
       { id: 'call-security', label: '先叫保安再报警后去', isDefault: false, outcome: '5分钟保安到，7分钟警察到。醉汉被带走。次日酒醒来道歉。', statsEffect: { safety: +10, support: +8, mental: +5, reputation: +5 }, isRecommended: true, tip: '叫保安→报警→等支援。绝不独自上前。', },
@@ -56,7 +56,7 @@ export const allEvents: GameEvent[] = [
     description: '胸痛患者，心电图ST压低。你让他住院，他说开药就行。要他签拒绝书，他说"不签，签了出事你们好推责任"。',
     isRealCase: true,
     realCaseRef: '真实判决：无拒绝住院签字记录，法院判赔14万',
-    imagePrompt: '中国医院诊室，58岁男性患者双臂交叉抱胸，表情倔强拒绝签字，医生拿着知情同意书身体前倾耐心解释，患者妻子站在一旁神情焦虑，写实摄影风格',
+    imagePrompt: "医院诊室，老年男性患者双臂交叉抱胸表情倔强拒绝签字，医生拿知情同意书身体前倾耐心解释，患者妻子站一旁焦虑，写实摄影风格，竖屏构图",
     options: [
       { id: 'let-go', label: '不签也罢嘱其不适随诊', isDefault: true, outcome: '5天后心梗猝死。家属起诉。无签字记录，法院判你赔14万。', statsEffect: { legalRisk: +30, reputation: -15, mental: -20 }, isRecommended: false, tip: '没签字就是没告知。', },
       { id: 'document', label: '病历详记请护士见证签字', isDefault: false, outcome: '你写下告知全过程，护士作证签字。后来患者心梗，投诉被驳回。', statsEffect: { safety: +10, legalRisk: -10, reputation: +3 }, isRecommended: true, tip: '病历记录+见证签字有法律效力。', },
@@ -71,7 +71,7 @@ export const allEvents: GameEvent[] = [
     description: '医务科通知你去。一周前患者投诉你"态度不耐烦"还发了微博。那天你看了60多个病人。',
     isRealCase: true,
     realCaseRef: '北京市医调委统计："服务态度"居投诉原因首位',
-    imagePrompt: '中国医院行政办公室，年轻男医生坐在办公桌前表情委屈无奈，对面穿着西装的行政人员正在谈话，桌上有投诉文件，窗外阳光照进来但气氛压抑',
+    imagePrompt: "医院行政办公室，年轻男医生坐办公桌前表情委屈无奈，对面西装行政人员正在谈话，桌上有投诉文件，窗外阳光照进但气氛压抑，竖屏构图",
     options: [
       { id: 'defend', label: '据理力争拿工作量说事', isDefault: true, outcome: '医务科说你态度不好。你的辩解被记为"不配合"。季度考核受影响。', statsEffect: { support: -10, reputation: -10, mental: -10 }, isRecommended: false, tip: '情绪对抗是最差的应对。', },
       { id: 'accept', label: '认错写份情况说明', isDefault: false, outcome: '投诉没影响考核。但你心里憋屈——每次都这么妥协很消耗人。', statsEffect: { reputation: -3, mental: -5, legalRisk: -3 }, isRecommended: false, tip: '化解了眼前但委屈累积会内伤。', },
@@ -86,7 +86,7 @@ export const allEvents: GameEvent[] = [
     description: '明天你主刀的手术，患者丈夫在走廊塞给你厚信封："一点心意。"妻子在旁眼巴巴看着。',
     isRealCase: true,
     realCaseRef: '多地卫健委通报：医生因收受红包被停职、吊销执业证',
-    imagePrompt: '中国医院空荡荡的走廊尽头，中年男子神秘地靠近年轻女医生，手中递出一个厚信封，表情既真诚又紧张，医生面露难色，写实风格',
+    imagePrompt: "医院空荡走廊尽头，中年男子神秘靠近年轻女医生，手中递出厚信封表情真诚又紧张，医生面露难色，写实风格，竖屏构图",
     options: [
       { id: 'accept', label: '收下免得病人不放心', isDefault: true, outcome: '不知被谁举报。纪委谈话。全院通报，停执业3个月，规培延迟。', statsEffect: { reputation: -30, legalRisk: +25, support: -20, mental: -20 }, isRecommended: false, tip: '红包是红线中的红线。', },
       { id: 'refuse-stern', label: '严词拒绝：你这样是害我', isDefault: false, outcome: '家属尴尬妻子术前哭。术后她始终不信任你。', statsEffect: { mental: -5, reputation: -5 }, isRecommended: false, tip: '硬拒让患者觉得"嫌钱少"。', },
@@ -101,7 +101,7 @@ export const allEvents: GameEvent[] = [
     description: '腹痛患者，你开血常规B超心电图。他大声说："开这么多？有提成是吧？"候诊区全看过来。',
     isRealCase: true,
     realCaseRef: '泉州卫健委投诉案例（2025）：调查后认定医生行为合规',
-    imagePrompt: '中国医院候诊区，中年男性患者拿着检查单表情愤怒地大声质问，周围候诊的患者们探头张望围观，年轻医生站着耐心解释，医患冲突一触即发，写实风格',
+    imagePrompt: "医院候诊区，中年男患者拿检查单表情愤怒大声质问，周围候诊患者探头围观，年轻医生站一旁耐心解释，冲突一触即发，写实风格，竖屏构图",
     options: [
       { id: 'reduce', label: '减去其他就做B超', isDefault: true, outcome: 'B超发现胆结石，漏了心电图。3天后心梗——腹痛是心源性的。', statsEffect: { legalRisk: +20, reputation: -15, mental: -10 }, isRecommended: false, tip: '降诊疗标准出事后你担责。', },
       { id: 'argue', label: '硬气回应该查什么我说了算', isDefault: false, outcome: '患者更怒，拿起手机录像。门诊主任来调停。他还是投诉了。', statsEffect: { reputation: -10, mental: -10, legalRisk: +10 }, isRecommended: false, tip: '权威式回应只会激化矛盾。', },
@@ -118,7 +118,7 @@ export const allEvents: GameEvent[] = [
     description: '你管的老人去世了。第二天30多人来病区拉横幅烧纸，喊"医生出来"，索赔50万。护士全躲进治疗室。',
     isRealCase: true,
     realCaseRef: '江西靖安县中医院医闹事件：家属设灵堂纠集上百人',
-    imagePrompt: '中国医院病房走廊尽头，几十个家属拉白色横幅围堵，气氛紧张压抑，保安试图维持秩序，写实新闻摄影风格',
+    imagePrompt: "医院病房走廊尽头，几十人拉白色横幅围堵，气氛紧张压抑，保安试图维持秩序，写实新闻摄影风格，竖屏构图",
     options: [
       { id: 'go-out', label: '出去面对说问心无愧', isDefault: true, outcome: '被围堵推倒，头撞墙多处挫伤。养伤两周。媒体报道各打五十大板。', statsEffect: { safety: -30, mental: -25, reputation: -10 }, isRecommended: false, tip: '一个人面对群体医闹等于送死。', },
       { id: 'call-police', label: '报警锁门等保卫科支援', isDefault: false, outcome: '保安和警察10分钟内到，家属散去。真家属后来沟通——那些人是远亲"自发"的。', statsEffect: { safety: +15, support: +10, mental: +5 }, isRecommended: true, tip: '报警→锁门→等支援。直系和闹事者往往两拨人。', },
@@ -133,7 +133,7 @@ export const allEvents: GameEvent[] = [
     description: '刷到自己的视频——你低头写病历的15秒，配文"对患儿态度冷漠"。3万点赞，评论炸了。',
     isRealCase: true,
     realCaseRef: '山西兴县造谣事件（2026）；周口邵医生被网暴坠楼（2025）',
-    imagePrompt: '一个手机屏幕特写，屏幕上显示抖音短视频评论区大量恶意攻击留言，手机背后的虚化背景是医院诊室，光线从手机屏幕映出冷色调，数字时代写实风格',
+    imagePrompt: "手机屏幕特写，屏幕上显示短视频评论区大量恶意攻击留言，手机背后虚化背景是医院诊室，冷色调光线，数字时代写实风格，竖屏构图",
     options: [
       { id: 'reply', label: '评论区回应自己是当事医生', isDefault: true, outcome: '引来更多攻击，被人肉出姓名科室。私信辱骂涌入，连续失眠。', statsEffect: { reputation: -15, mental: -25, safety: -10 }, isRecommended: false, tip: '跟互联网对线永远赢不了。', },
       { id: 'report-platform', label: '留存证据上报医院宣传科', isDefault: false, outcome: '截图保留证据后第一时间汇报。医院出面投诉，48小时视频下架。你没成舆论主角。', statsEffect: { safety: +10, support: +10, reputation: -5, mental: -5 }, isRecommended: true, tip: '让平台和机构去对抗。别一个人扛。', },
@@ -148,7 +148,7 @@ export const allEvents: GameEvent[] = [
     description: '直肠癌术后第4天出现吻合口漏——发生率5-8%，同意书已告知。但家属大喊"手术失败了"，儿子掏出手机录像。',
     isRealCase: true,
     realCaseRef: '多地医疗纠纷中"并发症=手术失败"的认知误区',
-    imagePrompt: '中国医院病房，患者躺在病床上虚弱，家属情绪激动手指着门口方向大声喊叫，年轻主治医生站在床边表情镇定但眼神忧虑，心电监护仪在背景中，写实风格',
+    imagePrompt: "医院病房，患者躺病床上虚弱，家属情绪激动手指门口大声喊叫，年轻主治医生站床边表情镇定但眼神忧虑，心电监护仪在背景中，写实风格，竖屏构图",
     options: [
       { id: 'defensive', label: '强调同意书已告知并发症', isDefault: true, outcome: '"又拿同意书当挡箭牌！"家属更激动，视频发家族群再传抖音。', statsEffect: { reputation: -15, mental: -10, legalRisk: +15 }, isRecommended: false, tip: '家属听到的不是"并发症"是"推卸"。', },
       { id: 'empathize-act', label: '先共情再行动组织紧急会诊', isDefault: false, outcome: '"我们马上处理"让家属稍冷静。急诊修补瘘口后你每天两次查房，两周后顺利出院。', statsEffect: { reputation: +8, support: +5, safety: +5, mental: +3 }, isRecommended: true, tip: '"手术失败"其实是在说"我很害怕"。用行动回应。', },
@@ -163,7 +163,7 @@ export const allEvents: GameEvent[] = [
     description: '同事定的方案你执行，患者不良反应被投诉。他在讨论时推给你："我只是建议，最终是他确认的。"主任看着你。',
     isRealCase: true,
     realCaseRef: '多地医院内部"甩锅"文化真实案例',
-    imagePrompt: '中国医院会议室，两个穿白大褂的医生面对面坐着争论，中间主任表情严肃双手交叉，桌上摊开病历和电脑，窗外城市黄昏光线，职场紧张气氛',
+    imagePrompt: "医院会议室，两个穿白大褂医生面对面争论，中间主任表情严肃双手交叉，桌上有病历和电脑，窗外黄昏光线，职场紧张气氛，竖屏构图",
     options: [
       { id: 'accept-blame', label: '忍了扛下说是我考虑不周', isDefault: true, outcome: '扣入考核。没人感激你。同事此后习惯让你执行他的决策，出事继续甩给你。', statsEffect: { mental: -15, reputation: -10, support: -5 }, isRecommended: false, tip: '一次退让可能换长期被欺负。', },
       { id: 'confront-colleague', label: '当面指出医嘱上有他的签名', isDefault: false, outcome: '调病历确认签名。主任"谁定谁负责"。你洗清了自己但同事关系彻底破裂。', statsEffect: { reputation: -5, mental: -10, support: +3, legalRisk: -5 }, isRecommended: false, tip: '事实能洗责任不一定能修关系。', },
@@ -178,7 +178,7 @@ export const allEvents: GameEvent[] = [
     description: '胸痛患者明确心梗，你让他紧急住院。他说"没事吃吃药就行，我弟做支架后更差了"。妻子在旁边急哭了。',
     isRealCase: true,
     realCaseRef: '真实判决：患者拒绝住院5天后猝死，家属索赔57.8万',
-    imagePrompt: '中国医院急诊室，50岁男性患者态度强硬手掌向外推做拒绝手势表情固执，妻子在旁边哭泣，医生手持心电图报告表情凝重在劝说，急救设备在背景中',
+    imagePrompt: "医院急诊室，中年男患者态度强硬手掌外推做拒绝手势表情固执，妻子在旁边哭，医生拿心电图报告表情凝重劝说，急救设备背景，竖屏构图",
     options: [
       { id: 'let-go-no-sign', label: '他执意要走嘱其不适随诊', isDefault: true, outcome: '3天后猝死。家属起诉"医生没说会死"。无签字记录，法院判赔18万。', statsEffect: { legalRisk: +35, reputation: -20, mental: -20 }, isRecommended: false, tip: '没签字等于法律上没告知。', },
       { id: 'document-full', label: '画堵塞图讲风险让他签拒绝', isDefault: false, outcome: '你画图解释不做的风险远大于做。他犹豫后签字，妻子也见证签字。', statsEffect: { legalRisk: -15, safety: +15, reputation: +5 }, isRecommended: true, tip: '知情同意书是你最重要的法律武器。', },
@@ -193,7 +193,7 @@ export const allEvents: GameEvent[] = [
     description: '治疗并发症被投诉。医务科说："技术上你没错，但家属闹得凶找了媒体。院里建议三五万私了，你配合承认沟通不到位。"',
     isRealCase: true,
     realCaseRef: '多地医院"私了"医患纠纷的普遍做法；北医三院张煜案',
-    imagePrompt: '中国医院办公室黄昏时分，医务科主任坐在办公桌后表情为难，年轻医生坐在对面感到压力很大，窗外天色渐暗，室内灯光惨淡，压抑的行政氛围',
+    imagePrompt: "医院办公室黄昏时分，医务科主任坐办公桌后表情为难，年轻医生坐对面压力很大，窗外天色渐暗室内灯光惨淡，压抑行政氛围，竖屏构图",
     options: [
       { id: 'agree', label: '按院里意思赔钱了事', isDefault: true, outcome: '"承认沟通不到位"记入考核。此后每次纠纷都让你配合——你成了"好说话的人"。', statsEffect: { reputation: -15, legalRisk: +10, mental: -10 }, isRecommended: false, tip: '"承认不到位"可能解读为"承认有过错"。', },
       { id: 'refuse', label: '坚决不认：技术上我没错', isDefault: false, outcome: '院长找你和主任谈话。虽未强求认错，晋升材料被搁置。主任私下劝你"别太硬"。', statsEffect: { support: -10, mental: -5, reputation: +5, legalRisk: -5 }, isRecommended: false, tip: '讲原则没错但代价是职业发展。', },
@@ -208,7 +208,7 @@ export const allEvents: GameEvent[] = [
     description: '下班出医院，话筒和摄像机怼过来："我们是电视台，有家属反映医疗过错，请回应。"红灯亮，路人围观。',
     isRealCase: true,
     realCaseRef: '多地医生被记者"突袭采访"真实经历',
-    imagePrompt: '中国医院门口傍晚时分，刚下班的年轻女医生穿着白大褂被举着话筒和摄像机的记者拦住，摄像机红灯亮着，围观群众在旁，医生表情错愕，新闻纪实风格',
+    imagePrompt: "医院门口傍晚时分，刚下班年轻女医生穿白大褂被举话筒和摄像机的记者拦住，摄像机红灯亮围观群众在旁，医生表情错愕，新闻纪实风格，竖屏构图",
     options: [
       { id: 'explain', label: '当镜头解释病情和经过', isDefault: true, outcome: '紧张中说的"确实处理可以更及时"被单独剪出。晚节目标题"医院承认处理不及时"。', statsEffect: { reputation: -20, legalRisk: +20, mental: -15 }, isRecommended: false, tip: '永远别在镜头前即兴发言。', },
       { id: 'no-comment', label: '婉拒称请联系医院宣传科', isDefault: false, outcome: '你快步走进楼内通知宣传科。院方统一回复后你没成节目主角。', statsEffect: { safety: +10, support: +5, reputation: +2 }, isRecommended: true, tip: '"请联系宣传科"是最安全的一句话。', },
@@ -224,7 +224,7 @@ export const allEvents: GameEvent[] = [
     description: '复杂肝胆手术后恢复不理想。家属在短视频平台持续发了两个月——15个账号近百条视频。举报48次仅删19条。门诊量降60%。你开始害怕看手机。',
     isRealCase: true,
     realCaseRef: '周口六院妇产科主任邵医生被网暴7个月后坠楼（2025）',
-    imagePrompt: '昏暗的卧室夜晚，中年男医生独自坐在床边低头看手机，手机冷光照亮他疲惫绝望的脸，墙上隐约可见多个社交媒体应用图标的阴影投射，孤独压抑的氛围',
+    imagePrompt: "昏暗卧室夜晚，中年男医生独自坐床边低头看手机，手机冷光照亮疲惫绝望的脸，墙上隐约有多个社交媒体图标阴影投射，孤独压抑氛围，竖屏构图",
     options: [
       { id: 'suffer-alone', label: '自己扛继续举报相信平台', isDefault: true, outcome: '失眠、心不在焉、差点开错医嘱。妻子说你回家不说话。你想"是不是不干就没事了"。', statsEffect: { mental: -35, reputation: -15, safety: -5 }, isRecommended: false, tip: '邵医生一个人扛了7个月后坠楼。', },
       { id: 'legal-action', label: '请律师起诉侵犯名誉权', isDefault: false, outcome: '律师固定全部证据向法院起诉并报案。诉讼周期虽长，但行动让你重新有了掌控感。', statsEffect: { safety: +15, support: +5, mental: +5, legalRisk: -5 }, isRecommended: true, tip: '法律行动让你从被动变主动。', },
@@ -239,7 +239,7 @@ export const allEvents: GameEvent[] = [
     description: '家属持续向卫健委投诉你过度医疗。调查组来院调病历要你当面说明。提问方式像预设你有问题。主任说最近在抓典型。',
     isRealCase: true,
     realCaseRef: '河北邯郸两医生被卫健委吊销执业证（2024）',
-    imagePrompt: '医院会议室内部，几位穿着正装的工作人员坐在会议桌一侧正在审阅文件，对面一位医生正在认真回答询问，桌上摆放着病历资料和水杯，窗外柔和日光，专业的工作氛围，写实风格',
+    imagePrompt: "医院会议室内，几位穿正装工作人员坐会议桌一侧审阅文件，对面一位医生认真回答询问，桌上摆放病历和水杯，窗外柔和日光，专业工作氛围，竖屏构图",
     options: [
       { id: 'panic-explain', label: '紧张长篇大论逐条自证', isDefault: true, outcome: '说越多给越多"把柄"。虽未吊销但被警告处分，记入医德档案。', statsEffect: { reputation: -20, legalRisk: +20, mental: -15 }, isRecommended: false, tip: '在调查面前说多错多。', },
       { id: 'lawyer-up', label: '提前找律师准备书面材料', isDefault: false, outcome: '你提交每项决策的指南依据和签字同意书。回答时"请看书面材料第X页"。结论：合规。', statsEffect: { safety: +15, reputation: +10, mental: +5, legalRisk: -10 }, isRecommended: true, tip: '你有权找律师、准备材料、要求程序公正。', },
@@ -254,7 +254,7 @@ export const allEvents: GameEvent[] = [
     description: '三年前治疗的患者遗留功能障碍。家属以"医疗事故罪"报案。你收到公安局《接受案件回执》——刑事调查已启动。',
     isRealCase: true,
     realCaseRef: '邯郸两医生被以"医疗事故罪"立案（2024）',
-    imagePrompt: '特写镜头，一双医生的手颤抖着拿着一份公安局的接受案件回执文件，文件上清晰可见红色公章，背景是模糊的医院走廊，震惊和恐惧的氛围',
+    imagePrompt: "特写镜头，一双医生的手颤抖着拿一份公安局接受案件回执文件，文件上清晰红色公章，背景模糊医院走廊，震惊恐惧氛围，竖屏构图",
     options: [
       { id: 'panic', label: '赶紧联系家属协商赔偿', isDefault: true, outcome: '家属律师嗅到恐惧，赔偿从50万涨到200万。主动联系可能被解读为"心虚"。', statsEffect: { legalRisk: +25, mental: -20, reputation: -15, safety: -10 }, isRecommended: false, tip: '刑事案件不能私了。越慌越被动。', },
       { id: 'lawyer-immediately', label: '立刻请律师全权代理处理', isDefault: false, outcome: '律师审查全部病历确认你合规，代你提交证据申请鉴定。有防火墙后你照常上班。', statsEffect: { safety: +20, mental: +5, legalRisk: -10 }, isRecommended: true, tip: '律师是你最重要的人——这个钱别省。', },
@@ -269,7 +269,7 @@ export const allEvents: GameEvent[] = [
     description: '你主刀四级手术，麻醉医生反应迟钝——像没睡好老打哈欠。患者生命体征波动时他没能及时报告。你不得不暂停提醒他。',
     isRealCase: true,
     realCaseRef: '医疗团队内部"知情不报"伦理困境；多地手术安全事故调查',
-    imagePrompt: '中国医院手术室，无影灯下正在进行手术，主刀医生抬头皱眉看向旁边的麻醉医生，麻醉医生神情疲惫打哈欠，监护仪屏幕在背景中闪动，紧张的手术氛围',
+    imagePrompt: "医院手术室内无影灯下正在进行手术，主刀医生抬头皱眉看向旁边麻醉医生，麻醉医生神情疲惫打哈欠，监护仪屏幕闪动，紧张手术氛围，竖屏构图",
     options: [
       { id: 'ignore', label: '算了患者也没出大碍', isDefault: true, outcome: '三月后他因疲劳漏看血氧下降，患者缺氧脑损伤。病例讨论上你低头沉默。', statsEffect: { mental: -20, reputation: -10, legalRisk: +15 }, isRecommended: false, tip: '沉默可能是下一个患者的间接伤害。', },
       { id: 'report-formal', label: '正式报告主任和医务处', isDefault: false, outcome: '他被安排强制休假和体检——严重睡眠呼吸暂停。他对你不满但主任肯定你"对生命负责"。', statsEffect: { reputation: +10, support: +8, mental: -5, safety: +5 }, isRecommended: true, tip: '报告同事伤关系，不报告害人。', },
@@ -284,7 +284,7 @@ export const allEvents: GameEvent[] = [
     description: '3岁患儿血管细，护士扎了两针。奶奶突然推开护士打掉治疗盘——针头散一地。护士在哭，孩子大哭，爷爷帮腔。',
     isRealCase: true,
     realCaseRef: '深圳市儿童医院伤医事件；广西桂南医院护士被扇耳光',
-    imagePrompt: '中国医院儿科病房，一位老年女性奶奶情绪失控推开年轻护士，护士摔倒在地，治疗盘针头散落一地，小孩在病床上大哭，爷爷在旁帮腔，混乱的冲突场面',
+    imagePrompt: "医院儿科病房，老年女性奶奶情绪失控推开年轻护士，护士摔倒在地，治疗盘针头散落一地，小孩在病床上大哭，爷爷帮腔，混乱冲突场面，竖屏构图",
     options: [
       { id: 'appease', label: '道歉安抚说我们技术不好', isDefault: true, outcome: '爷爷录音当"证据"拿到医务科。护士因你当众说她"技术不好"申请调离儿科。', statsEffect: { legalRisk: +15, support: -15, mental: -10 }, isRecommended: false, tip: '"是我们不好"在纠纷中是认罪。', },
       { id: 'firm-boundary', label: '挡在护士前再动手就报警了', isDefault: false, outcome: '奶奶被镇住。你亲自一针扎上后说"心疼孙子理解，但推那一下——换您女儿被推呢？"她沉默后去道歉。', statsEffect: { reputation: +10, support: +15, safety: +10, mental: +5 }, isRecommended: true, tip: '保护团队第一。底线坚定但给台阶。', },
@@ -298,7 +298,7 @@ export const allEvents: GameEvent[] = [
     description: '你为罕见病患者超说明书用药——指南推荐但中国未获批该适应症，已签知情同意。出现严重不良反应后，律师抓住"超说明书"指控你违法。',
     isRealCase: true,
     realCaseRef: '《医师法》第29条；多地超说明书用药纠纷',
-    imagePrompt: '医药专业场景，一位穿白大褂的医生表情忧虑地看着手中的药品说明书和病历，桌上散落着医学指南书籍和知情同意文件，窗外柔和光线，写实摄影风格，表现医疗决策的复杂性',
+    imagePrompt: "医药专业场景，一位穿白大褂医生表情忧虑看手中药品说明书和病历，桌上散落医学指南书籍和知情同意文件，窗外柔和光线，写实摄影风格，竖屏构图",
     options: [
       { id: 'panic-settle', label: '趁事没闹大同意赔钱和解', isDefault: true, outcome: '赔30万。圈内传开"某某用药出事赔钱"。同行避开你。记录影响医保考核。', statsEffect: { reputation: -25, legalRisk: -10, mental: -15 }, isRecommended: false, tip: '超说明书纠纷赔钱影响整个领域共识。', },
       { id: 'defend-guidelines', label: '以指南和知情同意书为证据', isDefault: false, outcome: '你提交指南、知情同意书、药事会备案。律师递交30页答辩。鉴定：用药符合共识。法院驳回。', statsEffect: { reputation: +15, safety: +20, legalRisk: -15, mental: +10 }, isRecommended: true, tip: '《医师法》第29条保护合规的超说明书用药。', },
